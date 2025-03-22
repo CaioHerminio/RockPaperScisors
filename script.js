@@ -1,30 +1,35 @@
-function playGame(playerChoice) {
-    const choices = ["Rock", "Paper", "Scissors"];
-    const computerChoice = Math.floor(Math.random() * 3);
+const choices = ["Rock", "Paper", "Scissors"];
 
-    document.getElementById("player-choice").innerText = `You chose: ${choices[playerChoice]}`;
-    document.getElementById("computer-choice").innerText = `Computer chose: ${choices[computerChoice]}`;
+function getComputerChoice() {
+    return choices[Math.floor(Math.random() * 3)];
+}
 
-    let resultText;
-    if (playerChoice === computerChoice) {
-        resultText = "It's a tie!";
-    } else if (
-        (playerChoice === 0 && computerChoice === 2) ||
-        (playerChoice === 1 && computerChoice === 0) ||
-        (playerChoice === 2 && computerChoice === 1)
+function determineWinner(userChoice, computerChoice) {
+    if (userChoice === computerChoice) return "It's a tie!";
+    if (
+        (userChoice === "Rock" && computerChoice === "Scissors") ||
+        (userChoice === "Paper" && computerChoice === "Rock") ||
+        (userChoice === "Scissors" && computerChoice === "Paper")
     ) {
-        resultText = "You win!";
-    } else {
-        resultText = "You lose!";
+        return "You win!";
     }
+    return "You lose!";
+}
 
-    document.getElementById("result").innerText = resultText;
-    document.getElementById("play-again").style.display = "block"; // Show Play Again button
+function playGame(userChoice) {
+    const computerChoice = getComputerChoice();
+    const resultMessage = determineWinner(userChoice, computerChoice);
+
+    document.getElementById("result").innerHTML = `
+        <p>You chose: <strong>${userChoice}</strong></p>
+        <p>Computer chose: <strong>${computerChoice}</strong></p>
+        <p>${resultMessage}</p>
+    `;
+
+    document.getElementById("playAgain").style.display = "block";
 }
 
 function resetGame() {
-    document.getElementById("player-choice").innerText = "";
-    document.getElementById("computer-choice").innerText = "";
-    document.getElementById("result").innerText = "";
-    document.getElementById("play-again").style.display = "none"; // Hide Play Again button
+    document.getElementById("result").innerHTML = "";
+    document.getElementById("playAgain").style.display = "none";
 }
