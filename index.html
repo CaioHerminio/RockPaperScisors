@@ -4,22 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
-    <link rel="stylesheet" href="styles.css">
-    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="game-container">
         <h1>Rock Paper Scissors</h1>
-        <div class="choices">
+        <div class="buttons">
             <button onclick="playGame(0)">✊ Rock</button>
-            <button onclick="playGame(1)">✋ Paper</button>
+            <button onclick="playGame(1)">🖐 Paper</button>
             <button onclick="playGame(2)">✌ Scissors</button>
         </div>
-        <div class="result">
-            <p id="player-choice"></p>
-            <p id="computer-choice"></p>
-            <p id="game-result"></p>
-        </div>
+        <p id="player-choice"></p>
+        <p id="computer-choice"></p>
+        <p id="result"></p>
+        <button id="play-again" onclick="resetGame()">Play Again</button>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
