@@ -4,15 +4,22 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #f0f0f0;
+    background-color: white; /* change background-color to white */
 }
 
 .container {
-    background-color: white;
+    background-color: white; /* set background-color to white as well */
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
+    width: 500px; /* adjust the width of the container */
+    margin: 50px; /* Add margins around container to add whitespace */
+}
+
+h1 {
+    font-family: sans-serif; /* adjust font */
+    font-weight: bold; /* add bold font-weight */
 }
 
 .buttons {
@@ -24,15 +31,17 @@ body {
 .choice-button {
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #4285f4;
-    color: white;
-    border: none;
+    background-color: #f0f0f0;  /* Light gray background */
+    color: black;         /* black text */
+    border: 1px solid #ccc; /* Add border */
+    border: none;  /* Remove border from previous version */
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.2s ease; /* Smooth hover effect */
 }
 
 .choice-button:hover {
-    background-color: #3367d6;
+    background-color: #ddd; /* Slightly darker gray on hover */
 }
 
 .results {
